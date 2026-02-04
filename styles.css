@@ -1674,6 +1674,23 @@ h3 {
     align-items: stretch;
   }
 
+  .hero-grid {
+    align-items: start;
+  }
+
+  .hero-art {
+    justify-items: stretch;
+  }
+
+  .stamp,
+  .pulse-card {
+    width: 100%;
+  }
+
+  .orbital {
+    margin: 0 auto;
+  }
+
   .hero-plane {
     width: min(150vw, 520px);
     max-height: 52vh;

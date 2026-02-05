@@ -64,7 +64,7 @@
 
     <div class="hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow" data-i18n="hero.eyebrow">Оплата зарубежных сервисов, подписок и виртуальных товаров</p>
+        <p class="eyebrow" data-i18n="hero.eyebrow">Коротко о том, что мы делаем и как работаем.</p>
         <h1 data-i18n="hero.title">Оформим оплату, когда это сложно сделать самостоятельно.</h1>
         <p class="lead" data-i18n="hero.lead">
           Мы помогаем оплачивать зарубежные сервисы через наши карты и банк.
@@ -76,9 +76,8 @@
           <a class="btn ghost" href="https://t.me/cessnaPay_chat" target="_blank" rel="noreferrer" data-i18n="hero.ctaChat">Отзывы и чат</a>
         </div>
         <div class="meta">
-          <span data-i18n="hero.metaOrder">Оформление заказа: @CessnaX</span>
-          <span data-i18n="hero.metaSupport">Поддержка: @sapphiremylove</span>
-          <span data-i18n="hero.metaPrice">Прайс и актуальность — в Telegram-канале</span>
+          <span data-i18n="hero.metaLine1">Сайт носит ознакомительный характер.</span>
+          <span data-i18n="hero.metaLine2">Все заявки и консультации — через официальные каналы.</span>
         </div>
       </div>
       <div class="hero-art">
@@ -221,7 +220,7 @@
         <p>
           <span data-i18n="about.card3.text">Официальный документ о регистрации и работе в ЕС. Можно скачать в формате DOCX.</span>
         </p>
-        <a class="btn ghost" href="CessnaPay_EU_Identification.docx" target="_blank" rel="noreferrer" data-i18n="about.card3.cta">Открыть сертификат</a>
+        <a class="btn ghost" href="CessnaPay_EU_Identification.docx" target="_blank" rel="noreferrer" data-docx-modal data-i18n="about.card3.cta">Открыть сертификат</a>
       </article>
     </div>
   </section>
@@ -319,9 +318,18 @@
       <div class="contact-info">
         <h3 data-i18n="contact.infoTitle">Как проходит оформление</h3>
         <ol class="steps">
-          <li data-i18n="contact.step1">Пишите в Telegram, описываете задачу.</li>
-          <li data-i18n="contact.step2">Подбираем вариант оплаты и подтверждаем детали.</li>
-          <li data-i18n="contact.step3">Оформляем и держим связь до результата.</li>
+          <li>
+            <img class="step-icon" src="plane-svgrepo-com.svg" alt="">
+            <span data-i18n="contact.step1">Пишите в Telegram, описываете задачу.</span>
+          </li>
+          <li>
+            <img class="step-icon" src="plane-svgrepo-com.svg" alt="">
+            <span data-i18n="contact.step2">Подбираем вариант оплаты и подтверждаем детали.</span>
+          </li>
+          <li>
+            <img class="step-icon" src="plane-svgrepo-com.svg" alt="">
+            <span data-i18n="contact.step3">Оформляем и держим связь до результата.</span>
+          </li>
         </ol>
         <p class="note" data-i18n="contact.note">Все цены и доступность — в канале CessnaPay.</p>
       </div>
@@ -383,6 +391,23 @@
             <li data-i18n="modal.legal8">Email: Cessna.pay@gmail.com</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="docx-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-modal-close></div>
+    <div class="modal-panel glass docx-panel" role="dialog" aria-modal="true" aria-labelledby="docx-modal-title">
+      <button class="modal-close" type="button" data-modal-close aria-label="Закрыть">×</button>
+      <div class="modal-head">
+        <h3 id="docx-modal-title" data-i18n="docx.title">Сертификат ЕС</h3>
+        <p data-i18n="docx.sub">Документ открывается прямо на сайте.</p>
+      </div>
+      <div class="docx-frame-wrap">
+        <iframe class="docx-frame" title="CessnaPay EU Certificate" loading="lazy"></iframe>
+      </div>
+      <div class="docx-actions">
+        <a class="btn ghost" href="CessnaPay_EU_Identification.docx" target="_blank" rel="noreferrer" data-i18n="docx.openNew">Открыть в новой вкладке</a>
       </div>
     </div>
   </div>

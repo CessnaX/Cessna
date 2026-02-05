@@ -1739,6 +1739,7 @@ h3 {
   background: radial-gradient(240px circle at top right, rgba(165, 22, 22, 0.15), transparent 60%);
   opacity: 0;
   transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
 .highlight:hover::after,
@@ -1839,9 +1840,20 @@ h3 {
 }
 
 .steps li::before {
-  content: "✈";
-  color: var(--accent-2);
-  font-weight: 700;
+  content: "";
+  display: none;
+}
+
+.step-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  filter: brightness(0) invert(1);
+}
+
+.theme-dark .step-icon {
+  filter: brightness(0) invert(1);
 }
 
 .contact-interactive {
@@ -1976,6 +1988,40 @@ h3 {
 
 .modal.is-open .modal-panel {
   transform: translateY(0) scale(1);
+}
+
+.docx-panel {
+  width: min(94vw, 920px);
+}
+
+.docx-frame-wrap {
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.docx-frame {
+  width: 100%;
+  height: min(70vh, 680px);
+  border: none;
+  background: #ffffff;
+}
+
+.docx-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.theme-dark .docx-frame-wrap {
+  background: rgba(18, 18, 22, 0.9);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.theme-dark .docx-frame {
+  background: #0f1014;
 }
 
 .modal-close {

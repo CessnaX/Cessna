@@ -10,6 +10,96 @@ let trailY = mouseY;
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+let clickAudio;
+
+const initAudio = () => {
+  if (!clickAudio) {
+    clickAudio = new Audio("mixkit-cool-interface-click-tone-2568.wav");
+    clickAudio.preload = "auto";
+    clickAudio.volume = 0.25;
+  }
+};
+
+const playClick = () => {
+  if (!clickAudio) return;
+  clickAudio.currentTime = 0;
+  clickAudio.play().catch(() => {});
+};
+
+const interactiveSelector =
+  "button, a, summary, .btn, .chip, .dock-btn, .lang-btn, .theme-toggle, .nav-link, .footer-btn, .social-link, [data-contact-modal], .modal-close";
+
+const shouldPlayClick = (target) => {
+  if (!(target instanceof Element)) return false;
+  return Boolean(target.closest(interactiveSelector));
+};
+
+document.addEventListener("pointerdown", (event) => {
+  if (!clickAudio) initAudio();
+  if (shouldPlayClick(event.target)) {
+    playClick();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  if (!clickAudio) initAudio();
+  if (shouldPlayClick(event.target)) {
+    playClick();
+  }
+});
+
+const openModal = (modal) => {
+  if (!modal) return;
+  modal.classList.add("is-open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+};
+
+const closeModal = (modal) => {
+  if (!modal) return;
+  modal.classList.remove("is-open");
+  modal.setAttribute("aria-hidden", "true");
+  if (!document.querySelector(".modal.is-open")) {
+    document.body.classList.remove("modal-open");
+  }
+};
+
+const wireModal = (modal) => {
+  if (!modal) return;
+  modal.querySelectorAll("[data-modal-close]").forEach((button) => {
+    button.addEventListener("click", () => closeModal(modal));
+  });
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeModal(modal);
+    }
+  });
+};
+
+const docxModal = document.getElementById("docx-modal");
+const docxFrame = docxModal?.querySelector(".docx-frame");
+
+if (docxModal && docxFrame) {
+  wireModal(docxModal);
+}
+
+document.addEventListener("click", (event) => {
+  const target = event.target;
+  if (!(target instanceof Element)) return;
+  const link = target.closest("[data-docx-modal]");
+  if (!link || !(link instanceof HTMLAnchorElement) || !docxModal || !docxFrame) return;
+  event.preventDefault();
+  if (window.location.protocol === "file:") {
+    window.open(link.href, "_blank", "noopener");
+    return;
+  }
+  const docUrl = new URL(link.getAttribute("href") || "", window.location.href).toString();
+  const viewerUrl = `https://docs.google.com/gview?url=${encodeURIComponent(docUrl)}&embedded=1`;
+  docxFrame.src = viewerUrl;
+  openModal(docxModal);
+});
+
 const translations = {
   ru: {
     "brand.sub": "Виртуальные услуги",
@@ -20,15 +110,14 @@ const translations = {
     "nav.reviews": "Отзывы",
     "nav.contacts": "Контакты",
     "theme.label": "Тема",
-    "hero.eyebrow": "Оплата зарубежных сервисов, подписок и виртуальных товаров",
+    "hero.eyebrow": "Коротко о том, что мы делаем и как работаем.",
     "hero.title": "Оформим оплату, когда это сложно сделать самостоятельно.",
     "hero.lead": "Мы помогаем оплачивать зарубежные сервисы через наши карты и банк. Сайт — ознакомительный, все цены и доступность — в Telegram.",
     "hero.ctaOrder": "Оформить заказ",
     "hero.ctaChannel": "Канал CessnaPay",
     "hero.ctaChat": "Отзывы и чат",
-    "hero.metaOrder": "Оформление заказа: @CessnaX",
-    "hero.metaSupport": "Поддержка: @sapphiremylove",
-    "hero.metaPrice": "Прайс и актуальность — в Telegram-канале",
+    "hero.metaLine1": "Сайт носит ознакомительный характер.",
+    "hero.metaLine2": "Все заявки и консультации — через официальные каналы.",
     "hero.stampLabel": "Оплата через банк",
     "hero.stampChip": "Проверено",
     "hero.stampTitle": "Законно",
@@ -70,6 +159,9 @@ const translations = {
     "about.card3.title": "Сертификат ЕС",
     "about.card3.text": "Официальный документ о регистрации и работе в ЕС. Можно скачать в формате DOCX.",
     "about.card3.cta": "Открыть сертификат",
+    "docx.title": "Сертификат ЕС",
+    "docx.sub": "Документ открывается прямо на сайте.",
+    "docx.openNew": "Открыть в новой вкладке",
     "payments.title": "Способы оплаты",
     "payments.sub": "Часть методов, с которыми чаще всего работаем.",
     "payments.primary": "Основные методы",
@@ -189,15 +281,14 @@ const translations = {
     "nav.reviews": "Reviews",
     "nav.contacts": "Contacts",
     "theme.label": "Theme",
-    "hero.eyebrow": "Payments for foreign services, subscriptions and digital goods",
+    "hero.eyebrow": "A short look at what we do and how we work.",
     "hero.title": "We process payments when it’s hard to do it yourself.",
     "hero.lead": "We help pay for foreign services via our cards and bank. This site is informational; all prices and availability are in Telegram.",
     "hero.ctaOrder": "Place an order",
     "hero.ctaChannel": "CessnaPay Channel",
     "hero.ctaChat": "Reviews & Chat",
-    "hero.metaOrder": "Order: @CessnaX",
-    "hero.metaSupport": "Support: @sapphiremylove",
-    "hero.metaPrice": "Pricing and availability — in the Telegram channel",
+    "hero.metaLine1": "This site is for informational purposes.",
+    "hero.metaLine2": "All requests and consultations go through official channels.",
     "hero.stampLabel": "Bank transfer",
     "hero.stampChip": "Verified",
     "hero.stampTitle": "Legal",
@@ -239,6 +330,9 @@ const translations = {
     "about.card3.title": "EU Certificate",
     "about.card3.text": "Official document confirming EU registration and operations. Available as a DOCX download.",
     "about.card3.cta": "Open certificate",
+    "docx.title": "EU Certificate",
+    "docx.sub": "The document opens right on the site.",
+    "docx.openNew": "Open in a new tab",
     "payments.title": "Payment methods",
     "payments.sub": "Methods we most often use.",
     "payments.primary": "Main methods",
@@ -358,15 +452,14 @@ const translations = {
     "nav.reviews": "评价",
     "nav.contacts": "联系方式",
     "theme.label": "主题",
-    "hero.eyebrow": "海外服务、订阅与虚拟商品支付",
+    "hero.eyebrow": "简要说明我们做什么以及如何运作。",
     "hero.title": "当你难以自行支付时，我们来帮你完成。",
     "hero.lead": "我们通过自有卡和银行渠道帮助支付海外服务。本网站仅作展示，价格与可用性以 Telegram 为准。",
     "hero.ctaOrder": "下单咨询",
     "hero.ctaChannel": "CessnaPay 频道",
     "hero.ctaChat": "评价与聊天",
-    "hero.metaOrder": "下单：@CessnaX",
-    "hero.metaSupport": "支持：@sapphiremylove",
-    "hero.metaPrice": "价格与可用性 — 见 Telegram 频道",
+    "hero.metaLine1": "本网站仅作展示用途。",
+    "hero.metaLine2": "所有咨询与申请请通过官方渠道。",
     "hero.stampLabel": "银行支付",
     "hero.stampChip": "已验证",
     "hero.stampTitle": "合规",
@@ -408,6 +501,9 @@ const translations = {
     "about.card3.title": "欧盟证书",
     "about.card3.text": "证明在欧盟注册与运营的官方文件，可下载 DOCX。",
     "about.card3.cta": "查看证书",
+    "docx.title": "欧盟证书",
+    "docx.sub": "文档将直接在网站中打开。",
+    "docx.openNew": "在新标签页打开",
     "payments.title": "支付方式",
     "payments.sub": "我们最常用的方式。",
     "payments.primary": "主要方式",
@@ -755,41 +851,21 @@ const contactModal = document.getElementById("contact-modal");
 const contactTriggers = document.querySelectorAll("[data-contact-modal]");
 
 if (contactModal && contactTriggers.length) {
-  const openModal = () => {
-    contactModal.classList.add("is-open");
-    contactModal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("modal-open");
-  };
-
-  const closeModal = () => {
-    contactModal.classList.remove("is-open");
-    contactModal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
-  };
-
+  wireModal(contactModal);
   contactTriggers.forEach((trigger) => {
     trigger.addEventListener("click", (event) => {
       event.preventDefault();
-      openModal();
+      openModal(contactModal);
     });
   });
-
-  contactModal.querySelectorAll("[data-modal-close]").forEach((button) => {
-    button.addEventListener("click", closeModal);
-  });
-
-  contactModal.addEventListener("click", (event) => {
-    if (event.target === contactModal) {
-      closeModal();
-    }
-  });
-
-  window.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && contactModal.classList.contains("is-open")) {
-      closeModal();
-    }
-  });
 }
+
+window.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  document.querySelectorAll(".modal.is-open").forEach((modal) => {
+    closeModal(modal);
+  });
+});
 
 
 const tiltItems = document.querySelectorAll(".tilt");

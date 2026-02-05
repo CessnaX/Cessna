@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CessnaPay — виртуальные услуги</title>
+  <title data-i18n="page.title">CessnaPay — Виртуальные услуги</title>
   <meta name="description" content="CessnaPay — помощь с оплатой зарубежных сервисов и подписок.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,7 @@
   <div class="grain" aria-hidden="true"></div>
   <div class="glow" aria-hidden="true"></div>
   <div class="chart-layer" aria-hidden="true"></div>
+  <div class="brand-pattern" aria-hidden="true"></div>
   <div class="radar-rings" aria-hidden="true"></div>
   <div class="cursor" aria-hidden="true"></div>
   <div class="cursor cursor--trail" aria-hidden="true"></div>
@@ -24,15 +25,24 @@
         <img src="e245c474-7acd-4918-b396-6cf9ca745722.jpg" alt="CessnaPay" class="logo">
         <div class="brand-text">
           <span class="brand-title">CessnaPay</span>
-          <span class="brand-sub">Виртуальные услуги</span>
+          <span class="brand-sub" data-i18n="brand.sub">Виртуальные услуги</span>
         </div>
       </div>
       <div class="nav-actions">
-        <a class="nav-link" href="#services">Услуги</a>
-        <a class="nav-link" href="#payments">Оплата</a>
-        <a class="nav-link" href="#partners">Партнеры</a>
-        <a class="nav-link" href="#reviews">Отзывы</a>
-        <a class="nav-link" href="#contact">Контакты</a>
+        <a class="nav-link" href="#services" data-i18n="nav.services">Услуги</a>
+        <a class="nav-link" href="#payments" data-i18n="nav.payments">Оплата</a>
+        <a class="nav-link" href="#partners" data-i18n="nav.partners">Партнеры</a>
+        <a class="nav-link" href="#reviews" data-i18n="nav.reviews">Отзывы</a>
+        <a class="nav-link" href="#contact" data-contact-modal data-i18n="nav.contacts">Контакты</a>
+        <div class="lang-switch" aria-label="Language switch">
+          <button class="lang-btn" type="button" data-lang="ru">RU</button>
+          <button class="lang-btn" type="button" data-lang="en">EN</button>
+          <button class="lang-btn" type="button" data-lang="zh">中文</button>
+        </div>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme">
+          <span class="theme-toggle__switch" aria-hidden="true"></span>
+          <span class="theme-toggle__label" data-i18n="theme.label">Тема</span>
+        </button>
       </div>
     </nav>
 
@@ -54,21 +64,21 @@
 
     <div class="hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Оплата зарубежных сервисов, подписок и виртуальных товаров</p>
-        <h1>Оформим оплату, когда это сложно сделать самостоятельно.</h1>
-        <p class="lead">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Оплата зарубежных сервисов, подписок и виртуальных товаров</p>
+        <h1 data-i18n="hero.title">Оформим оплату, когда это сложно сделать самостоятельно.</h1>
+        <p class="lead" data-i18n="hero.lead">
           Мы помогаем оплачивать зарубежные сервисы через наши карты и банк.
           Сайт — ознакомительный, все цены и доступность — в Telegram.
         </p>
         <div class="cta-row">
-          <a class="btn primary" href="https://t.me/CessnaX" target="_blank" rel="noreferrer">Оформить заказ</a>
-          <a class="btn ghost" href="https://t.me/CessnaPay" target="_blank" rel="noreferrer">Канал CessnaPay</a>
-          <a class="btn ghost" href="https://t.me/cessnaPay_chat" target="_blank" rel="noreferrer">Отзывы и чат</a>
+          <a class="btn primary" href="https://t.me/CessnaX" target="_blank" rel="noreferrer" data-i18n="hero.ctaOrder">Оформить заказ</a>
+          <a class="btn ghost" href="https://t.me/CessnaPay" target="_blank" rel="noreferrer" data-i18n="hero.ctaChannel">Канал CessnaPay</a>
+          <a class="btn ghost" href="https://t.me/cessnaPay_chat" target="_blank" rel="noreferrer" data-i18n="hero.ctaChat">Отзывы и чат</a>
         </div>
         <div class="meta">
-          <span>Оформление заказа: @CessnaX</span>
-          <span>Поддержка: @sapphiremylove</span>
-          <span>Прайс и актуальность — в Telegram-канале</span>
+          <span data-i18n="hero.metaOrder">Оформление заказа: @CessnaX</span>
+          <span data-i18n="hero.metaSupport">Поддержка: @sapphiremylove</span>
+          <span data-i18n="hero.metaPrice">Прайс и актуальность — в Telegram-канале</span>
         </div>
       </div>
       <div class="hero-art">
@@ -83,35 +93,43 @@
               </textPath>
             </text>
           </svg>
-          <div class="gauge glass reveal" aria-hidden="true">
-            <div class="gauge-ring"></div>
-            <div class="gauge-needle"></div>
-            <div class="gauge-center"></div>
-            <div class="gauge-labels">
-              <span>N</span>
-              <span>E</span>
-              <span>S</span>
-              <span>W</span>
+          <div class="clock glass reveal" aria-hidden="true">
+            <div class="clock-ring"></div>
+            <div class="clock-hand clock-hand--hour"></div>
+            <div class="clock-hand clock-hand--minute"></div>
+            <div class="clock-hand clock-hand--second"></div>
+            <div class="clock-center"></div>
+            <div class="clock-labels">
+              <span>12</span>
+              <span>3</span>
+              <span>6</span>
+              <span>9</span>
             </div>
           </div>
         </div>
         <div class="stamp glass">
           <div class="stamp-head">
-            <span class="stamp-label">Оплата через банк</span>
-            <span class="stamp-chip">Проверено</span>
+            <div class="stamp-title">
+              <span class="icon-badge icon-badge--sm"><img class="icon-img" src="Card%20SVG%20Icon.svg" alt=""></span>
+              <span class="stamp-label" data-i18n="hero.stampLabel">Оплата через банк</span>
+            </div>
+            <span class="stamp-chip" data-i18n="hero.stampChip">Проверено</span>
           </div>
-          <strong>Законно</strong>
-          <span class="stamp-sub">Оплата через наши карты и банк.</span>
+          <strong data-i18n="hero.stampTitle">Законно</strong>
+          <span class="stamp-sub" data-i18n="hero.stampSub">Оплата через наши карты и банк.</span>
           <div class="stamp-bar"></div>
         </div>
         <div class="pulse-card glass tilt reveal">
           <div class="pulse-head">
-            <h3>Быстрый заказ</h3>
-            <span class="pulse-chip">Telegram</span>
+            <div class="pulse-title">
+              <span class="icon-badge icon-badge--sm"><img class="icon-img" src="bolt-svgrepo-com.svg" alt=""></span>
+              <h3 data-i18n="hero.pulseTitle">Быстрый заказ</h3>
+            </div>
+            <span class="pulse-chip" data-i18n="hero.pulseChip">Telegram</span>
           </div>
-          <p>Напишите в Telegram — ответим и оформим.</p>
+          <p data-i18n="hero.pulseText">Напишите в Telegram — ответим и оформим.</p>
           <div class="pulse-actions">
-            <a class="mini-link" href="#contact">Как оформить</a>
+            <a class="mini-link" href="#contact" data-i18n="hero.pulseLink">Как оформить</a>
             <span class="pulse-dots" aria-hidden="true"></span>
           </div>
         </div>
@@ -121,93 +139,101 @@
 
   <section class="section highlights" id="about">
     <div class="section-head">
-      <h2>Почему CessnaPay</h2>
-      <p>Коротко о принципах работы и фокусе на безопасности.</p>
+      <h2 data-i18n="highlights.title">Почему CessnaPay</h2>
+      <p data-i18n="highlights.sub">Коротко о принципах работы и фокусе на безопасности.</p>
     </div>
     <div class="highlight-grid">
       <article class="highlight tilt reveal">
-        <h3>Легально и прозрачно</h3>
-        <p>Проводим оплату через банк с наших карт.</p>
+        <span class="icon-badge"><img class="icon-img" src="shield-svgrepo-com.svg" alt=""></span>
+        <h3 data-i18n="highlights.card1.title">Легально и прозрачно</h3>
+        <p data-i18n="highlights.card1.text">Проводим оплату через банк с наших карт.</p>
       </article>
       <article class="highlight tilt reveal">
-        <h3>Быстрое оформление</h3>
-        <p>Ответ в Telegram, оформление без лишних шагов.</p>
+        <span class="icon-badge"><img class="icon-img" src="bolt-svgrepo-com.svg" alt=""></span>
+        <h3 data-i18n="highlights.card2.title">Быстрое оформление</h3>
+        <p data-i18n="highlights.card2.text">Ответ в Telegram, оформление без лишних шагов.</p>
       </article>
       <article class="highlight tilt reveal">
-        <h3>Поддержка на связи</h3>
-        <p>Помогаем с выбором сервиса и варианта оплаты.</p>
+        <span class="icon-badge"><img class="icon-img" src="Chat%20SVG%20Icon.svg" alt=""></span>
+        <h3 data-i18n="highlights.card3.title">Поддержка на связи</h3>
+        <p data-i18n="highlights.card3.text">Помогаем с выбором сервиса и варианта оплаты.</p>
       </article>
     </div>
   </section>
 
   <section class="section" id="services">
     <div class="section-head">
-      <h2>Что можно оформить</h2>
-      <p>Категории услуг. Полный прайс и актуальные позиции — в Telegram.</p>
+      <h2 data-i18n="services.title">Что можно оформить</h2>
+      <p data-i18n="services.sub">Категории услуг. Полный прайс и актуальные позиции — в Telegram.</p>
     </div>
     <div class="card-grid service-grid">
       <article class="card tilt reveal">
-        <h3>Оплата зарубежных сервисов</h3>
-        <p>Игровые подписки, AI, магазины, цифровые товары.</p>
+        <h3 data-i18n="services.card1.title">Оплата зарубежных сервисов</h3>
+        <p data-i18n="services.card1.text">Игровые подписки, AI, магазины, цифровые товары.</p>
       </article>
       <article class="card tilt reveal">
-        <h3>Подписки и подарочные карты</h3>
-        <p>Оформляем на ваш аккаунт или выдаем новый.</p>
+        <h3 data-i18n="services.card2.title">Подписки и подарочные карты</h3>
+        <p data-i18n="services.card2.text">Оформляем на ваш аккаунт или выдаем новый.</p>
       </article>
       <article class="card tilt reveal">
-        <h3>Telegram-решения</h3>
-        <p>Premium, Stars, пополнения и другие услуги.</p>
+        <h3 data-i18n="services.card3.title">Telegram-решения</h3>
+        <p data-i18n="services.card3.text">Premium, Stars, пополнения и другие услуги.</p>
       </article>
       <article class="card tilt reveal">
-        <h3>Платежные карты</h3>
-        <p>Поможем оформить зарубежную карту под задачу.</p>
+        <h3 data-i18n="services.card4.title">Платежные карты</h3>
+        <p data-i18n="services.card4.text">Поможем оформить зарубежную карту под задачу.</p>
       </article>
       <article class="card tilt reveal">
-        <h3>Аккаунты и номера</h3>
-        <p>Новые аккаунты и номера для регистрации сервисов.</p>
+        <h3 data-i18n="services.card5.title">Аккаунты и номера</h3>
+        <p data-i18n="services.card5.text">Новые аккаунты и номера для регистрации сервисов.</p>
       </article>
       <article class="card tilt reveal">
-        <h3>Индивидуальные запросы</h3>
-        <p>Если услуги нет в списке — напишите, подберем вариант.</p>
+        <h3 data-i18n="services.card6.title">Индивидуальные запросы</h3>
+        <p data-i18n="services.card6.text">Если услуги нет в списке — напишите, подберем вариант.</p>
       </article>
     </div>
     <div class="cta-row">
-      <a class="btn primary" href="https://t.me/CessnaX" target="_blank" rel="noreferrer">Оформить заказ</a>
-      <a class="btn ghost" href="https://t.me/CessnaPay" target="_blank" rel="noreferrer">Канал с прайсом</a>
+      <a class="btn primary" href="https://t.me/CessnaX" target="_blank" rel="noreferrer" data-i18n="services.ctaOrder">Оформить заказ</a>
+      <a class="btn ghost" href="https://t.me/CessnaPay" target="_blank" rel="noreferrer" data-i18n="services.ctaChannel">Канал с прайсом</a>
     </div>
   </section>
 
   <section class="section" id="bio">
     <div class="section-head">
-      <h2>О нас</h2>
-      <p>Кто мы и как развиваем CessnaPay.</p>
+      <h2 data-i18n="about.title">О нас</h2>
+      <p data-i18n="about.sub">Кто мы и как развиваем CessnaPay.</p>
     </div>
     <div class="card-grid">
       <article class="card tilt reveal">
-        <h3>Био</h3>
+        <h3 data-i18n="about.card1.title">Кто мы</h3>
         <p>
-          CessnaPay — команда, которая помогает оплачивать зарубежные сервисы и виртуальные товары
-          через проверенные каналы. Мы работаем аккуратно, прозрачно и быстро.
+          <span data-i18n="about.card1.text">CessnaPay — команда, которая помогает с оплатой зарубежных сервисов, подписок и виртуальных товаров. Мы фокусируемся на аккуратном оформлении, прозрачной коммуникации и быстрой поддержке. Работаем через проверенные каналы и держим клиента в курсе статуса на каждом этапе.</span>
         </p>
       </article>
       <article class="card tilt reveal">
-        <h3>История 2025–2026</h3>
+        <h3 data-i18n="about.card2.title">История 2025–2026</h3>
         <p>
-          Старт в 2025: запрос на оплаты и подписки вырос, и мы собрали удобный сервис.
-          В 2026 усилили поддержку, добавили чат с отзывами и расширили набор платежных методов.
+          <span data-i18n="about.card2.text">В 2025 мы запустили CessnaPay как ответ на растущий спрос на зарубежные оплаты и подписки. За этот период отстроили процесс подбора решений и формализацию заказов. В 2026 усилили поддержку, добавили чат с отзывами и расширили набор платежных сценариев, чтобы закрывать больше типов запросов и помогать быстрее.</span>
         </p>
+      </article>
+      <article class="card tilt reveal">
+        <h3 data-i18n="about.card3.title">Сертификат ЕС</h3>
+        <p>
+          <span data-i18n="about.card3.text">Официальный документ о регистрации и работе в ЕС. Можно скачать в формате DOCX.</span>
+        </p>
+        <a class="btn ghost" href="CessnaPay_EU_Identification.docx" target="_blank" rel="noreferrer" data-i18n="about.card3.cta">Открыть сертификат</a>
       </article>
     </div>
   </section>
 
   <section class="section logo-wall" id="payments">
     <div class="section-head">
-      <h2>Способы оплаты</h2>
-      <p>Часть методов, с которыми чаще всего работаем.</p>
+      <h2 data-i18n="payments.title">Способы оплаты</h2>
+      <p data-i18n="payments.sub">Часть методов, с которыми чаще всего работаем.</p>
     </div>
     <div class="logo-board glass">
       <div class="logo-board-head">
-        <span class="logo-board-title">Основные методы</span>
+        <span class="logo-board-title" data-i18n="payments.primary">Основные методы</span>
         <span class="logo-board-line" aria-hidden="true"></span>
       </div>
       <div class="logo-grid">
@@ -225,13 +251,13 @@
         </div>
       </div>
     </div>
-    <p class="note">Актуальные условия и список способов — в Telegram.</p>
+    <p class="note" data-i18n="payments.note">Актуальные условия и список способов — в Telegram.</p>
   </section>
 
   <section class="section partners" id="partners">
     <div class="section-head">
-      <h2>Партнерские сервисы</h2>
-      <p>Сервисы, с которыми сотрудничаем и помогаем с оформлением.</p>
+      <h2 data-i18n="partners.title">Партнерские сервисы</h2>
+      <p data-i18n="partners.sub">Сервисы, с которыми сотрудничаем и помогаем с оформлением.</p>
     </div>
     <div class="partner-board">
       <div class="partner-header">
@@ -259,7 +285,7 @@
           </div>
       </div>
       <div class="partner-footer">
-        <span>Проверенные направления 2025–2026</span>
+        <span data-i18n="partners.footer">Проверенные направления 2025–2026</span>
         <span class="partner-line" aria-hidden="true"></span>
       </div>
     </div>
@@ -267,67 +293,67 @@
 
   <section class="section" id="reviews">
     <div class="section-head">
-      <h2>Отзывы и чат</h2>
-      <p>Подтверждения сделок, вопросы и ответы — в Telegram-чате.</p>
+      <h2 data-i18n="reviews.title">Отзывы и чат</h2>
+      <p data-i18n="reviews.sub">Подтверждения сделок, вопросы и ответы — в Telegram-чате.</p>
     </div>
     <div class="card-grid">
       <article class="card glass tilt reveal stack-card">
-        <h3>Отзывы и общение</h3>
-        <p>Живой чат с отзывами и обратной связью.</p>
-        <a class="btn ghost" href="https://t.me/cessnaPay_chat" target="_blank" rel="noreferrer">Открыть чат</a>
+        <h3 data-i18n="reviews.card1.title">Отзывы и общение</h3>
+        <p data-i18n="reviews.card1.text">Живой чат с отзывами и обратной связью.</p>
+        <a class="btn ghost" href="https://t.me/cessnaPay_chat" target="_blank" rel="noreferrer" data-i18n="reviews.card1.cta">Открыть чат</a>
       </article>
       <article class="card glass tilt reveal stack-card">
-        <h3>Канал с обновлениями</h3>
-        <p>Новости, доступность услуг, новые предложения.</p>
-        <a class="btn ghost" href="https://t.me/CessnaPay" target="_blank" rel="noreferrer">Открыть канал</a>
+        <h3 data-i18n="reviews.card2.title">Канал с обновлениями</h3>
+        <p data-i18n="reviews.card2.text">Новости, доступность услуг, новые предложения.</p>
+        <a class="btn ghost" href="https://t.me/CessnaPay" target="_blank" rel="noreferrer" data-i18n="reviews.card2.cta">Открыть канал</a>
       </article>
     </div>
   </section>
 
   <section class="section invert-band" id="contact">
     <div class="section-head">
-      <h2>Оформление заказа</h2>
-      <p>Пишите в Telegram — ответим быстро и поможем подобрать лучший вариант.</p>
+      <h2 data-i18n="contact.title">Оформление заказа</h2>
+      <p data-i18n="contact.sub">Пишите в Telegram — ответим быстро и поможем подобрать лучший вариант.</p>
     </div>
     <div class="contact-card glass tilt reveal">
       <div class="contact-info">
-        <h3>Как проходит оформление</h3>
+        <h3 data-i18n="contact.infoTitle">Как проходит оформление</h3>
         <ol class="steps">
-          <li>Пишите в Telegram, описываете задачу.</li>
-          <li>Подбираем вариант оплаты и подтверждаем детали.</li>
-          <li>Оформляем и держим связь до результата.</li>
+          <li data-i18n="contact.step1">Пишите в Telegram, описываете задачу.</li>
+          <li data-i18n="contact.step2">Подбираем вариант оплаты и подтверждаем детали.</li>
+          <li data-i18n="contact.step3">Оформляем и держим связь до результата.</li>
         </ol>
-        <p class="note">Все цены и доступность — в канале CessnaPay.</p>
+        <p class="note" data-i18n="contact.note">Все цены и доступность — в канале CessnaPay.</p>
       </div>
       <div class="contact-interactive">
-        <h3>Связаться</h3>
+        <h3 data-i18n="contact.connectTitle">Связаться</h3>
         <div class="contact-accordion">
           <details>
-            <summary>Оформление заказа</summary>
+            <summary data-i18n="contact.sumOrder">Оформление заказа</summary>
             <div class="contact-body">
-              <a class="btn ghost" href="https://t.me/CessnaX" target="_blank" rel="noreferrer">Написать @CessnaX</a>
-              <span class="contact-sub">Быстрый заказ и подбор решения.</span>
+              <a class="btn ghost" href="https://t.me/CessnaX" target="_blank" rel="noreferrer" data-i18n="contact.btnOrder">Написать @CessnaX</a>
+              <span class="contact-sub" data-i18n="contact.subOrder">Быстрый заказ и подбор решения.</span>
             </div>
           </details>
           <details>
-            <summary>Техническая поддержка</summary>
+            <summary data-i18n="contact.sumSupport">Техническая поддержка</summary>
             <div class="contact-body">
-              <a class="btn ghost" href="https://t.me/sapphiremylove" target="_blank" rel="noreferrer">Поддержка @sapphiremylove</a>
-              <span class="contact-sub">Помощь по оформлению и оплате.</span>
+              <a class="btn ghost" href="https://t.me/sapphiremylove" target="_blank" rel="noreferrer" data-i18n="contact.btnSupport">Поддержка @sapphiremylove</a>
+              <span class="contact-sub" data-i18n="contact.subSupport">Помощь по оформлению и оплате.</span>
             </div>
           </details>
           <details>
-            <summary>Отзывы и чат</summary>
+            <summary data-i18n="contact.sumChat">Отзывы и чат</summary>
             <div class="contact-body">
-              <a class="btn ghost" href="https://t.me/cessnaPay_chat" target="_blank" rel="noreferrer">Открыть чат</a>
-              <span class="contact-sub">Отзывы и ответы на вопросы.</span>
+              <a class="btn ghost" href="https://t.me/cessnaPay_chat" target="_blank" rel="noreferrer" data-i18n="contact.btnChat">Открыть чат</a>
+              <span class="contact-sub" data-i18n="contact.subChat">Отзывы и ответы на вопросы.</span>
             </div>
           </details>
           <details>
-            <summary>Канал CessnaPay</summary>
+            <summary data-i18n="contact.sumChannel">Канал CessnaPay</summary>
             <div class="contact-body">
-              <a class="btn ghost" href="https://t.me/CessnaPay" target="_blank" rel="noreferrer">Открыть канал</a>
-              <span class="contact-sub">Прайс, новости, доступность.</span>
+              <a class="btn ghost" href="https://t.me/CessnaPay" target="_blank" rel="noreferrer" data-i18n="contact.btnChannel">Открыть канал</a>
+              <span class="contact-sub" data-i18n="contact.subChannel">Прайс, новости, доступность.</span>
             </div>
           </details>
         </div>
@@ -335,10 +361,36 @@
     </div>
   </section>
 
+  <div class="modal" id="contact-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-modal-close></div>
+    <div class="modal-panel glass" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+      <button class="modal-close" type="button" data-modal-close aria-label="Закрыть">×</button>
+      <div class="modal-head">
+        <h3 id="contact-modal-title" data-i18n="modal.title">Контакты</h3>
+        <p data-i18n="modal.sub">Все каналы связи и рабочие данные.</p>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-block">
+          <h4 data-i18n="modal.legalTitle">Юридическая информация</h4>
+          <ul class="modal-list">
+            <li data-i18n="modal.legal1">Наименование: CessnaPay Services Kft.</li>
+            <li data-i18n="modal.legal2">Реестр: Cégjegyzékszám 01-09-334512</li>
+            <li data-i18n="modal.legal3">Налоговый номер: 28976341-2-42</li>
+            <li data-i18n="modal.legal4">EU VAT: HU28976341</li>
+            <li data-i18n="modal.legal5">Адрес: 1055 Budapest, Cessna tér 17.</li>
+            <li data-i18n="modal.legal6">Представитель: Bence Kovács, ügyvezető</li>
+            <li data-i18n="modal.legal7">Телефон: +36 30 784 19 52</li>
+            <li data-i18n="modal.legal8">Email: Cessna.pay@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="mobile-dock" aria-label="Быстрые действия">
-    <a class="dock-btn primary" href="https://t.me/CessnaX" target="_blank" rel="noreferrer">Заказать</a>
-    <a class="dock-btn ghost" href="https://t.me/cessnaPay_chat" target="_blank" rel="noreferrer">Чат</a>
-    <a class="dock-btn ghost" href="https://t.me/CessnaPay" target="_blank" rel="noreferrer">Канал</a>
+    <a class="dock-btn primary" href="https://t.me/CessnaX" target="_blank" rel="noreferrer" data-i18n="dock.order">Заказать</a>
+    <a class="dock-btn ghost" href="https://t.me/cessnaPay_chat" target="_blank" rel="noreferrer" data-i18n="dock.chat">Чат</a>
+    <a class="dock-btn ghost" href="https://t.me/CessnaPay" target="_blank" rel="noreferrer" data-i18n="dock.channel">Канал</a>
   </div>
 
   <footer class="footer" id="footer">
@@ -350,8 +402,8 @@
         </div>
       </div>
       <div class="footer-actions">
-        <a class="footer-btn" href="privacy.html">Политика конфиденциальности</a>
-        <a class="footer-btn" href="#contact">Контакты</a>
+        <a class="footer-btn" href="privacy.html" data-i18n="footer.privacy">Политика конфиденциальности</a>
+        <a class="footer-btn" href="#contact" data-contact-modal data-i18n="footer.contacts">Контакты</a>
       </div>
     </div>
     <div class="footer-social">
@@ -368,7 +420,7 @@
       <a href="mailto:Cessna.pay@gmail.com">Cessna.pay@gmail.com</a>
     </div>
     <div class="footer-mini">
-      <a href="https://www.instagram.com/cessna.shop?igsh=MWY1OWhtZm04amdheQ==" target="_blank" rel="noreferrer">Задизайнено в студии cuda</a>
+      <a href="https://www.instagram.com/cessna.shop?igsh=MWY1OWhtZm04amdheQ==" target="_blank" rel="noreferrer" data-i18n="footer.designed">Задизайнено в студии cuda</a>
     </div>
   </footer>
 
